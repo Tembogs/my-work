@@ -7,8 +7,8 @@ export default function Home() {
         </h1>
 
         <p className="text-lg text-gray-700 mb-6">
-          I’m a Frontend Developer building websites with
-          Next.js ,TypeScript, JavaScript, React, and Tailwind CSS.
+          I’m a Frontend and a Backend Developer building websites with
+          Next.js ,TypeScript, JavaScript, React, Tailwind CSS, Node.js, Express, MongoDb
         </p>
 
         <button className="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition">

@@ -6,36 +6,40 @@ import { HiMenu, HiX } from "react-icons/hi"; // Hamburger icon
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("Home")
 
   return (
     <nav className="w-full px-6 md:px-10 py-5 bg-black text-white flex justify-between items-center shadow-md fixed top-0 z-50">
       {/* Logo */}
       <h1 className="text-xl font-bold tracking-wide">
-        Temmy<span className="text-blue-500">.dev</span>
+        TemBog<span className="text-blue-500">.dev</span>
       </h1>
 
       {/* Desktop Menu */}
       <ul className="hidden md:flex gap-8 font-medium">
         <li>
-          <Link href="/" className="hover:text-blue-500 transition">
+          <Link href="/" className={active === "Home" ? "bg-blue-600 px-4 py-2  rounded-lg  animate-pulse" : "hover:text-blue-500 hover:animate-ping transition"} 
+          onClick={() => setActive("Home")}>
             Home
           </Link>
         </li>
         <li>
-          <Link href="/about" className="hover:text-blue-500 transition">
+          <Link href="/about" className={active === "About" ? "bg-blue-600 px-4 py-2 rounded-lg  animate-pulse" : "hover:text-blue-500 hover:animate-ping transition"}
+          onClick={() => setActive("About")} >
             About
           </Link>
         </li>
         <li>
-          <Link href="/project" className="hover:text-blue-500 transition">
+          <Link href="/project" className={active === "Projects" ? "bg-blue-600 px-4 py-2 rounded-lg  animate-pulse" : "hover:text-blue-500 hover:animate-ping transition"}
+          onClick={() => setActive("Projects")}>
             Projects
           </Link>
         </li>
         <li>
           <Link
             href="/contact"
-            className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition text-white"
-          >
+            className={active === "Contact" ? "px-4 py-2 bg-blue-600 rounded-lg text-white animate-pulse" : "hover:text-blue-500 hover:animate-ping transition"}
+           onClick={() => setActive("Contact")}>
             Contact
           </Link>
         </li>
@@ -55,8 +59,11 @@ export default function Navbar() {
           <li>
             <Link
               href="/"
-              className="hover:text-blue-500 transition"
-              onClick={() => setIsOpen(false)}
+              className={active === "Home" ? "bg-blue-600 px-4 py-2  rounded-lg  animate-pulse" : "hover:text-blue-500 transition"} 
+              onClick={() =>{
+                setActive("Home")
+                setIsOpen(false)
+              }}
             >
               Home
             </Link>
@@ -64,17 +71,22 @@ export default function Navbar() {
           <li>
             <Link
               href="/about"
-              className="hover:text-blue-500 transition"
-              onClick={() => setIsOpen(false)}
+              className={active === "About" ? "bg-blue-600 px-4 py-2  rounded-lg  animate-pulse" : "hover:text-blue-500 transition"} 
+              onClick={() =>{
+                setActive("About")
+                setIsOpen(false)
+              }}
             >
               About
             </Link>
           </li>
           <li>
             <Link
-              href="/projects"
-              className="hover:text-blue-500 transition"
-              onClick={() => setIsOpen(false)}
+              href="/project"
+              className={active === "Projects" ? "bg-blue-600 px-4 py-2  rounded-lg  animate-pulse" : "hover:text-blue-500 transition"}
+              onClick={() => {
+                setActive("Projects")
+                setIsOpen(false)}}
             >
               Projects
             </Link>
@@ -82,8 +94,10 @@ export default function Navbar() {
           <li>
             <Link
               href="/contact"
-              className="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition text-white"
-              onClick={() => setIsOpen(false)}
+              className={active === "Contact" ? "bg-blue-600 px-4 py-2  rounded-lg  animate-pulse" : "hover:text-blue-500 transition"}
+              onClick={() =>{
+                setActive("Contact") 
+                setIsOpen(false)}}
             >
               Contact
             </Link>
